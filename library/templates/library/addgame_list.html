@@ -1,7 +1,6 @@
 {% extends "base.html" %}
-
 {% block content %}
-
+{% load static %}
 <!-- addgame_list.html content starts here -->
 <div class="container-fluid">
     <div class="row">
@@ -18,12 +17,10 @@
                                     <p class="title">Title: {{ games.title }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
-                                <h2 class="card-title">{{ games.owner }}</h2>
-                            </a>
-
                             <hr />
                             <p class="card-text text-muted h6">{{ games.description}}
+                            </p>
+                            <p class="card-text text-muted h6">Player Count: {{ games.minimum_player_count }} - {{ games.maximum_player_count }}
                             </p>
                         </div>
                     </div>
