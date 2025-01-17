@@ -19,6 +19,7 @@ from django.urls import path, include
 from library import views
 
 urlpatterns = [
-    path("", include("library.urls"), name="library-urls"),
+    path('library/', views.LibraryList.as_view(), name="library"),
+    path("", include("library.urls"), name="home"),
     path('admin/', admin.site.urls),
 ]

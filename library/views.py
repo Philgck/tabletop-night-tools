@@ -5,4 +5,4 @@ from .models import AddGame
 # Create your views here.
 class LibraryList(generic.ListView):
     queryset = AddGame.objects.all()
-    template_name = "addgame_list.html"
+    template_name = "library/addgame_list.html"
