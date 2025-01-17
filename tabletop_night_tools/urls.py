@@ -22,4 +22,5 @@ urlpatterns = [
     path('library/', views.LibraryList.as_view(), name="library"),
     path("", include("library.urls"), name="home"),
     path('admin/', admin.site.urls),
+    path("accounts/", include("allauth.urls")),
 ]
