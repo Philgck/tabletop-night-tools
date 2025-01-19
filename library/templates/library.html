@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-<h1 class="text-center">Library</h1>
-{% for game in games_list %}
-<div class="card mb-3">
-    <div class="card-header">
-        {{ game.name }}
-    </div>
-    <img src="{{ game.image_url }}" class="card-img-top" alt="{{ game.name }}">
-    <div class="card-body">
-        <p class="card-text">{{ game.description }}</p>
-        <p class="card-text"><small class="text-muted"> Player Count: {{ game.minimum_player_count }},
-                {{ game.maximum_player_count }}</small></p>
-    </div>
-</div>
-{% endfor %}
+<section class="container">
+    <div class="row">
+        <h1 class="text-center">Library</h1>
+            {% for game in games_list %}
+            <div class="card shadow mb-3 col-md-5 mb-2 mx-auto">
+                <div class="card-header">
+                    {{ game.name }}
+                </div>
+                <img src="{{ game.image_url }}" class="card-img-top" alt="{{ game.name }}">
+                <div class="card-body">
+                    <p class="card-text">{{ game.description }}</p>
+                    <p class="card-text"><small class="text-muted"> Player Count: {{ game.minimum_player_count }},
+                            {{ game.maximum_player_count }}</small></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</section>
 
 {% endblock content %}
