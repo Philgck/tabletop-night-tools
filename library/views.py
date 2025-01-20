@@ -10,5 +10,9 @@ class GamesList(generic.ListView):
     context_object_name = 'games_list'
     ordering = ['title']
     paginate_by = 5
+
     def get_queryset(self):
-        return AddGame.objects.all()
+        if self.request.user.is_authenticated:
+            return AddGame.objects.filter(owner=self.request.user)
+        else:
+            return AddGame.objects.none()

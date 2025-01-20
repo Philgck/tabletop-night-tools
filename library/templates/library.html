@@ -3,6 +3,7 @@
 {% block content %}
 <section class="container">
     <div class="row">
+        {% if user.is_authenticated %}
         <h1 class="text-center">Library</h1>
             {% for game in games_list %}
             <div class="card shadow mb-3 col-md-5 mb-2 mx-auto">
@@ -18,6 +19,9 @@
             </div>
             {% endfor %}
         </div>
+        {% else %}
+        <h1 class="text-center">Please log in to view the library</h1>
+        {% endif %}
 </section>
 
 {% endblock content %}
