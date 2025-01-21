@@ -35,6 +35,7 @@
             <div class="card-body">
                 <p class="card-text">{{ game.description }}</p>
                 <p class="card-text"><small class="text-muted"> Player Count: {{ game.minimum_player_count }} - {{ game.maximum_player_count }}</small></p>
+                <a href="{% url 'game-update' game.pk %}" class="btn btn-warning">Update</a>
                 <a href="{% url 'game-delete' game.pk %}" class="btn btn-danger">Delete</a>
             </div>
         </div>

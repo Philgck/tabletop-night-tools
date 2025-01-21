@@ -46,3 +46,15 @@ class GameDeleteView(generic.DeleteView):
             return AddGame.objects.filter(owner=self.request.user)
         else:
             return AddGame.objects.none()
+    
+class GameUpdateView(generic.UpdateView):
+    model = AddGame
+    form_class = AddGameForm
+    template_name = 'game_update_form.html'
+    success_url = reverse_lazy('library')
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return AddGame.objects.filter(owner=self.request.user)
+        else:
+            return AddGame.objects.none()
