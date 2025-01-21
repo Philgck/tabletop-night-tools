@@ -11,3 +11,4 @@ class AddGame(models.Model):
     review = models.TextField(blank=True, null=True)
     minimum_player_count = models.IntegerField()
     maximum_player_count = models.IntegerField()
+    image_url = models.URLField(blank=True, null=True)    

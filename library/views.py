@@ -3,8 +3,16 @@ from django.views import generic
 from .models import AddGame
 from .forms import AddGameForm
 from django.urls import reverse_lazy
+from .bgg_api import fetch_bgg_game_data
 
 # Create your views here.
+
+def bgg_game_data(request, game_name):
+    game_data = fetch_bgg_game_data(game_name)
+    if game_data:
+        return JsonResponse(game_data)
+    else:
+        return JsonResponse({'error': 'Game not found'}, status=404)
 
 class GamesList(generic.ListView):
     model = AddGame
@@ -24,6 +32,15 @@ class GamesList(generic.ListView):
         if request.user.is_authenticated:
             form = AddGameForm(request.POST)
             if form.is_valid():
+                bgg_id = form.cleaned_data.get('bgg_id')
+                if bgg_id:
+                    game_data = fetch_bgg_game_data(bgg_id)
+                    if game_data:
+                        form.instance.title = game_data['name']
+                        form.instance.description = game_data['description']
+                        form.instance.minimum_player_count = game_data['minplayers']
+                        form.instance.maximum_player_count = game_data['maxplayers']
+                        form.instance.image_url = game_data['image']
                 new_game = form.save(commit=False)
                 new_game.owner = request.user
                 new_game.save()
