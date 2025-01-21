@@ -8,5 +8,6 @@ class AddGame(models.Model):
     title = models.CharField(max_length=100)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
+    review = models.TextField(blank=True, null=True)
     minimum_player_count = models.IntegerField()
     maximum_player_count = models.IntegerField()
