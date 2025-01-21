@@ -4,24 +4,29 @@
 <section class="container">
     <div class="row">
         {% if user.is_authenticated %}
+        <h1 class="text-center">Add game to library</h1>
+        <form method="post" class="mb-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Add Game</button>
+        </form>
         <h1 class="text-center">Library</h1>
             {% for game in games_list %}
             <div class="card shadow mb-3 col-md-5 mb-2 mx-auto">
                 <div class="card-header">
-                    {{ game.name }}
+                    {{ game.title }}
                 </div>
-                <img src="{{ game.image_url }}" class="card-img-top" alt="{{ game.name }}">
                 <div class="card-body">
                     <p class="card-text">{{ game.description }}</p>
-                    <p class="card-text"><small class="text-muted"> Player Count: {{ game.minimum_player_count }},
-                            {{ game.maximum_player_count }}</small></p>
+                    <p class="card-text"><small class="text-muted"> Player Count: {{ game.minimum_player_count }} - {{ game.maximum_player_count }}</small></p>
+                    <a href="{% url 'game-delete' game.pk %}" class="btn btn-danger">Delete</a>
+                    
                 </div>
             </div>
             {% endfor %}
-        </div>
         {% else %}
         <h1 class="text-center">Please log in to view the library</h1>
         {% endif %}
+    </div>
 </section>
-
 {% endblock content %}
