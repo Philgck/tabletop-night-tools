@@ -2,7 +2,7 @@ import requests
 from xml.etree import ElementTree
 
 def fetch_bgg_game_data(game_name):
-    search_url = f"https://boardgamegeek.com/xmlapi2/search?query={game_name}&type=boardgame"
+    search_url = f"https://boardgamegeek.com/xmlapi2/search?query={game_name}&type=boardgame,wargame"
     search_response = requests.get(search_url)
     if search_response.status_code == 200:
         search_tree = ElementTree.fromstring(search_response.content)

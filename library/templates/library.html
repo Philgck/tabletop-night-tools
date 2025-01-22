@@ -20,8 +20,6 @@
                     </div>
                     <div class="modal-body">
                         <form method="post">
-                            {% csrf_token %}
-                            {{ form.as_p }}
                             <div class="mb-3">
                                 <label for="gameSearch" class="form-label">Search for a game</label>
                                 <div class="loading-spinner" id="loadingSpinner"></div>
@@ -34,6 +32,8 @@
                                     <option value="">Select a game</option>
                                 </select>
                             </div>
+                            {% csrf_token %}
+                            {{ form.as_p }}
                             <button type="submit" class="btn btn-primary">Add Game</button>
                         </form>
                     </div>
