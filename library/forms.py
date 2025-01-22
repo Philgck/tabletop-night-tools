@@ -2,7 +2,6 @@ from django import forms
 from .models import AddGame
 
 class AddGameForm(forms.ModelForm):
-    bgg_id = forms.CharField(max_length=100, required=False, label='BGG Game ID')
 
     class Meta:
         model = AddGame

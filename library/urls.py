@@ -6,5 +6,4 @@ urlpatterns = [
     path('', views.GamesList.as_view(), name='library'),
     path('delete/<int:pk>/', views.GameDeleteView.as_view(), name='game-delete'),
     path('update/<int:pk>/', views.GameUpdateView.as_view(), name='game-update'),
-    path('bgg_api/<str:game_name>/', views.bgg_game_data, name='bgg-game-data'),
 ]

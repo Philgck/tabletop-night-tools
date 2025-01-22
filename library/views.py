@@ -4,15 +4,9 @@ from .models import AddGame
 from .forms import AddGameForm
 from django.urls import reverse_lazy
 from .bgg_api import fetch_bgg_game_data
+from django.http import JsonResponse
 
 # Create your views here.
-
-def bgg_game_data(request, game_name):
-    game_data = fetch_bgg_game_data(game_name)
-    if game_data:
-        return JsonResponse(game_data)
-    else:
-        return JsonResponse({'error': 'Game not found'}, status=404)
 
 class GamesList(generic.ListView):
     model = AddGame
