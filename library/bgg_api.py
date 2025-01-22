@@ -6,10 +6,15 @@ def fetch_bgg_game_data(game_name):
     search_response = requests.get(search_url)
     if search_response.status_code == 200:
         search_tree = ElementTree.fromstring(search_response.content)
-        item = search_tree.find('item')
-        if item is not None:
-            game_id = item.attrib['id']
-            return fetch_bgg_game_details(game_id)
+        items = search_tree.findall('item')  # Find all items in the search response
+        if items:
+            games = []
+            for item in items:
+                game_id = item.attrib['id']
+                game_details = fetch_bgg_game_details(game_id)
+                if game_details:
+                    games.append(game_details)  # Append game details to the list
+            return games
     return None
 
 def fetch_bgg_game_details(game_id):
