@@ -3,14 +3,31 @@
 async function searchBGGGame() {
     const gameName = document.getElementById('gameSearch').value;
     if (gameName) {
-        const response = await fetch(`/search_bgg_games/?game_name=${encodeURIComponent(gameName)}`);
-        if (response.ok) {
-            const games = await response.json();
-            populateGameOptions(games);
-        } else {
-            alert('No games found');
+        showLoadingSpinner();
+        try {
+            const response = await fetch(`/search_bgg_games/?game_name=${encodeURIComponent(gameName)}`);
+            if (response.ok) {
+                const games = await response.json();
+                populateGameOptions(games);
+            } else {
+                alert('No games found');
+            }
+        } catch (error) {
+            console.error('Error fetching game data:', error);
+            alert('An error occurred while searching for games');
+        } finally {
+            hideLoadingSpinner();
         }
     }
+}
+// Presents a loading spinner whilst the search is being performed
+
+function showLoadingSpinner() {
+    document.getElementById('loadingSpinner').style.display = 'block';
+}
+
+function hideLoadingSpinner() {
+    document.getElementById('loadingSpinner').style.display = 'none';
 }
 
 function populateGameOptions(games) {
@@ -23,6 +40,8 @@ function populateGameOptions(games) {
         gameSelect.appendChild(option);
     });
 }
+
+
 
 function selectGame() {
     const gameSelect = document.getElementById('gameSelect');
