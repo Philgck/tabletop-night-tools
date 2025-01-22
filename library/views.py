@@ -7,6 +7,14 @@ from .bgg_api import fetch_bgg_game_data
 from django.http import JsonResponse
 
 # Create your views here.
+def search_bgg_games(request):
+    game_name = request.GET.get('game_name', '')
+    if game_name:
+        games = fetch_bgg_game_data(game_name)
+        if games:
+            return JsonResponse(games, safe=False)
+    return JsonResponse({'error': 'No games found'}, status=404)
+
 
 class GamesList(generic.ListView):
     model = AddGame

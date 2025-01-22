@@ -3,6 +3,47 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+
+<script>
+    async function searchBGGGame() {
+        const gameName = document.getElementById('gameSearch').value;
+        if (gameName) {
+            const response = await fetch(`/search_bgg_games/?game_name=${encodeURIComponent(gameName)}`);
+            if (response.ok) {
+                const games = await response.json();
+                populateGameOptions(games);
+            } else {
+                alert('No games found');
+            }
+        }
+    }
+
+    function populateGameOptions(games) {
+        const gameSelect = document.getElementById('gameSelect');
+        gameSelect.innerHTML = '<option value="">Select a game</option>';
+        games.forEach(game => {
+            const option = document.createElement('option');
+            option.value = JSON.stringify(game);
+            option.textContent = game.name;
+            gameSelect.appendChild(option);
+        });
+    }
+
+    function selectGame() {
+        const gameSelect = document.getElementById('gameSelect');
+        const selectedGame = gameSelect.value;
+        if (selectedGame) {
+            const game = JSON.parse(selectedGame);
+            document.getElementById('id_title').value = game.name;
+            document.getElementById('id_description').value = game.description;
+            document.getElementById('id_minimum_player_count').value = game.minplayers;
+            document.getElementById('id_maximum_player_count').value = game.maxplayers;
+            document.getElementById('id_image_url').value = game.image;
+        }
+    }
+</script>
+
+
 <section class="container">
     <div class="row">
         <h1 class="text-center">Library</h1>
@@ -21,6 +62,17 @@
                         <form method="post">
                             {% csrf_token %}
                             {{ form.as_p }}
+                            <div class="mb-3">
+                                <label for="gameSearch" class="form-label">Search for a game</label>
+                                <input type="text" id="gameSearch" class="form-control" placeholder="Enter game name">
+                                <button type="button" class="btn btn-secondary mt-2" onclick="searchBGGGame()">Search</button>
+                            </div>
+                            <div class="mb-3">
+                                <label for="gameSelect" class="form-label">Select a game</label>
+                                <select id="gameSelect" class="form-select" onchange="selectGame()">
+                                    <option value="">Select a game</option>
+                                </select>
+                            </div>
                             <button type="submit" class="btn btn-primary">Add Game</button>
                         </form>
                     </div>
