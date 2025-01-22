@@ -16,10 +16,16 @@ class GamesList(generic.ListView):
     paginate_by = 6
 
     def get_queryset(self):
+        queryset = AddGame.objects.none()
         if self.request.user.is_authenticated:
-            return AddGame.objects.filter(owner=self.request.user)
-        else:
-            return AddGame.objects.none()
+            queryset = AddGame.objects.filter(owner=self.request.user)
+            min_players = self.request.GET.get('min_players')
+            max_players = self.request.GET.get('max_players')
+            if min_players:
+                queryset = queryset.filter(minimum_player_count__gte=min_players)
+            if max_players:
+                queryset = queryset.filter(maximum_player_count__gte=max_players)
+        return queryset
         
         
     def post(self, request, *args, **kwargs):
