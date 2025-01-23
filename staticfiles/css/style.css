@@ -31,3 +31,17 @@ main {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.card {
+    max-height: 15vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
