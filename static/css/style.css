@@ -1,3 +1,5 @@
+/* General Styling */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -11,6 +13,14 @@ main {
     flex-direction: column;
 
 }
+
+img {
+    min-height: 400px;
+    max-height: 400px;
+}
+
+/* Spinner */
+
 
 .loading-spinner {
     display: none;
