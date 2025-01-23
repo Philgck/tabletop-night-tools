@@ -1,1 +1,1 @@
-web: gunicorn my_project.wsgi
+web: gunicorn tabletop_night_tools.wsgi
