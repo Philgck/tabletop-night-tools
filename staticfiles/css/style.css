@@ -1,3 +1,16 @@
+/* Variables */
+
+/* Fonts */
+
+.bowlby-one-sc-regular {
+    font-family: "Bowlby One SC", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+/* General Styling */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -11,6 +24,17 @@ main {
     flex-direction: column;
 
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bowlby One SC", serif;
+    letter-spacing: 1rem;
+}
+/* Added a maximum height to the images in order to shrink the overall size of the cards, as the images fetched from BGG are not uniform in size. */
+img {
+    max-height: 400px;
+}
+
+/* Spinner. The script to pull information from BGG takes a long time to load, this is to make sure the user does not think it has failed. */
 
 .loading-spinner {
     display: none;
@@ -32,16 +56,3 @@ main {
     100% { transform: rotate(360deg); }
 }
 
-.card {
-    max-height: 15vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-content {
-    flex: 1;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
