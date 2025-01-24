@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container">
-    <h1>{{ game.title }}</h1>
-    <img src="{{ game.image_url }}" class="img-fluid" alt="{{ game.title }}">
-    <p>{{ game.description }}</p>
-    <p>Player Count: {{ game.minimum_player_count }} - {{ game.maximum_player_count }}</p>
-    <a href="{% url 'game-update' game.pk %}" class="btn btn-warning">Update</a>
-    <a href="{% url 'game-delete' game.pk %}" class="btn btn-danger">Delete</a>
+<div class="container mt-4 mb-4"></div>
+    <div class="card shadow">
+        <div class="card-header"><h1 class="card-title">{{ game.title }}</h1></div>
+        <div class="card-body">
+            <img src="{{ game.image_url }}" class="card-img-top img-fluid" alt="{{ game.title }}" style="max-height: 50vh; object-fit: cover;">
+            <p class="card-text">{{ game.description }}</p>
+            <p class="card-text">Player Count: {{ game.minimum_player_count }} - {{ game.maximum_player_count }}</p>
+            <a href="{% url 'library' %}" class="btn btn-primary">Back to Library</a>
+            <a href="{% url 'game-update' game.pk %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'game-delete' game.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

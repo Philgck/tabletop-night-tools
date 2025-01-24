@@ -10,7 +10,8 @@ A single site with tools to enable to easier hosting of board gaming nights or s
   - [Attach or link to accessible wireframes used in the design process, ensuring high colour contrast and alt text for visual elements.]
   - [Explain the rationale behind the layout and design choices, focusing on usability and accessibility for all users, including those using assistive technologies.]
 - **Design Rationale:**
-  - [Explain key design decisions, such as layout, colour scheme, typography, and how accessibility guidelines (e.g., WCAG) were integrated.]
+- The design of the primary app was to be as simple as possible to provide a clear list of games and give access to further information upon clicking on either the image or the title of a game. The colour scheme was chosen to be high contrast to make it easy to read and the font was chosen as it is easy to read if you are dyslexic. 
+- The colour scheme was also, in part, decided due to the integration of the BGG API: As it needs to be credited in order to be used, and the logo is orange and purple, in order to make the styling coherent these colours were necessary.
   - [Highlight any considerations made for users with disabilities, such as screen reader support.]
 - **Reasoning For Any Final Changes:**
   - [Summarise significant changes made to the design during development and the reasons behind them.]
@@ -21,6 +22,7 @@ A single site with tools to enable to easier hosting of board gaming nights or s
 - **Maximum Player Count Feature:** The board games are currently displayed in a paginated list. The maximum player count feature allows users to put the upper bound on how many people might be attending an evening, and only displays games that can be played with this player count.
 - **Inclusivity Notes:** 
   - The font choice was made after consulting with a dyslexic friend about readability, and is deliberately similar to Comic Sans as this is a very readable font. 
+  - The buttons used throughout are consistently styled to give a visual cue. The primary buttons to advance are all styled to be similar to the overall colour scheme of the website, and the update and delete buttons were left with basic bootstrap styling as yellow and red are both colours associated with danger and caution.
 
 ## Deployment
 - **Platform:** [Platform used, e.g., Heroku, AWS, etc.]
@@ -70,7 +72,9 @@ A single site with tools to enable to easier hosting of board gaming nights or s
 - The intent of the project was to create multiple tools to enhance the ability to host board game evenings. Currently there is just one, and a single filter by maximum player count. Other features might include storing tags for specific games so a host can filter by "Euro Game" or similar.
 - A could have feature I wanted to implement was a friends list that would enable a user to share their library with others. Board game evenings are a fundamentally social experience, and being able to know what is in your own library and your friends libraries would be extremely helpful.
 - The name itself belies the aim: It is supposed to be several tools. I want to add features that help with the hosting of Role Playing Games as well. 
-- With regards to accessibility, directly in the tabletop space linking to specific sites dedicated to accessbility and potentially integrating some of their recommendations would be useful. The site 
+- With regards to accessibility, directly in the tabletop space linking to specific sites dedicated to accessbility and potentially integrating some of their recommendations would be useful.
+- Whilst building the project I directly amended the all-auth templates. I realised too late that I should have copied them to build my own templates, instead of amending the base templates. I hope that I can delete this from the future enhancements section, and simplify the repo as a result. 
+- The primary focus was making sure that I would achieve CRUD and hit my MVP. As a result, I did not explore AllAuth as much as I should. In future I would like to ammend this, create a functional accounts seciton and enable a user to manage their account properly. 
 
 Initial commit and readme. This project was created using the code institute template. 
 
