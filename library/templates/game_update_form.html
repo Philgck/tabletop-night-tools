@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="container">
-    <h1 class="text-center">Update Game</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Update Game</button>
-        <a href="{% url 'library' %}" class="btn btn-secondary">Cancel</a>
-    </form>
-</section>
+<div class="container mt-4 mb-4">
+    <div class="card shadow">
+        <div class="card-header"><h1 class="card-title text-center">Update Game</h1></div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Update Game</button>
+                <a href="{% url 'library' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

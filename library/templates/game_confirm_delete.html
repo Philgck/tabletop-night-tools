@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="container">
-    <h1 class="text-center">Delete Game</h1>
-    <p>Are you sure you want to delete the game "{{ object.title }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Confirm Delete</button>
-        <a href="{% url 'library' %}" class="btn btn-secondary">Cancel</a>
-    </form>
-</section>
+<div class="container mt-4 mb-4">
+    <div class="card shadow">
+        <div class="card-header"><h1 class="card-title">Delete Game</h1></div>
+        <div class="card-body">
+            <p>Are you sure you want to delete the game "{{ object.title }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                <a href="{% url 'library' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

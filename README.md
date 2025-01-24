@@ -75,6 +75,7 @@ A single site with tools to enable to easier hosting of board gaming nights or s
 - With regards to accessibility, directly in the tabletop space linking to specific sites dedicated to accessbility and potentially integrating some of their recommendations would be useful.
 - Whilst building the project I directly amended the all-auth templates. I realised too late that I should have copied them to build my own templates, instead of amending the base templates. I hope that I can delete this from the future enhancements section, and simplify the repo as a result. 
 - The primary focus was making sure that I would achieve CRUD and hit my MVP. As a result, I did not explore AllAuth as much as I should. In future I would like to ammend this, create a functional accounts seciton and enable a user to manage their account properly. 
+- Crispyforms were not used with the project. Considering the nature of some of the content this would be helpful to make certain areas of the site more visually appealing. 
 
 Initial commit and readme. This project was created using the code institute template. 
 

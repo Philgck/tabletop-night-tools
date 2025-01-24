@@ -6,7 +6,7 @@
 
 <section class="container">
     <div class="row">
-        <h1 class="text-center">Library</h1>
+        <h1 class="text-center my-4">Library</h1>
         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addGameModal">
             Add Game
         </button>
@@ -63,7 +63,7 @@
         {% if game.maximum_player_count >= max_players|add:0 %}
         <div class="card shadow mb-3 col-md-5 mb-2 mx-auto">
             <div class="card-header">
-                <a href="{% url 'game-detail' game.pk %}">{{ game.title }}</a>
+                <a href="{% url 'game-detail' game.pk %}" class="d-block text-center fs-5">{{ game.title }}</a>
             </div>
             <div class="card-body"> <a href="{% url 'game-detail' game.pk %}">
                     <img src="{{ game.image_url }}" class="card-img-top" alt="{{ game.title }}">
@@ -104,6 +104,8 @@
     </div>
 </section>
 {% else %}
-<h1 class="text-center">Please log in to view the library</h1>
+<section>
+    <h1 class="text-center my-5">Please log in to view the library</h1>
+</section>
 {% endif %}
 {% endblock content %}
