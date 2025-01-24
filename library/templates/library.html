@@ -22,6 +22,7 @@
                         <form method="post">
                             <div class="mb-3">
                                 <label for="gameSearch" class="form-label">Search for a game</label>
+                                <img src="{% static 'images/poweredbybgg.webp' %}" alt="Powered by BGG" id="BGGAcredditation" style="max-width: 100%; height: auto;">
                                 <div class="loading-spinner" id="loadingSpinner"></div>
                                 <input type="text" id="gameSearch" class="form-control" placeholder="Enter game name">
                                 <button type="button" class="btn btn-secondary mt-2"
@@ -41,15 +42,19 @@
                 </div>
             </div>
         </div>
+        
         <form method="get" id="filter-form" class="mb-4">
-            <div class="row">
-                <div class="col-md-3">
-                    <p>Use this to filter your collection by maximum player count</p><button type="submit" class="btn btn-primary">Filter</button>
-                </div>
-                <div class="col-md-3">
-                    <input type="number" name="max_players" class="form-control" placeholder="Max Players"
-                        value="{{ request.GET.max_players }}">
-                </div>
+            <div class="row align-items-end">
+            <div class="col-md-6">
+                <p>Use this to filter your collection by maximum player count</p>
+            </div>
+            <div class="col-md-3">
+                <input type="number" name="max_players" class="form-control" placeholder="Max Players"
+                value="{{ request.GET.max_players }}">
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
             </div>
         </form>
         {% for game in games_list %}
@@ -75,38 +80,17 @@
     <div class="d-flex justify-content-center">
         <nav aria-label="Page navigation">
             <ul class="pagination">
-                {% if games_list.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ games_list.previous_page_number }}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <span class="page-link" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </span>
-                </li>
-                {% endif %}
-                {% for num in games_list.paginator.page_range %}
-                {% if games_list.number == num %}
-                <li class="page-item active"><span class="page-link">{{ num }}</span></li>
-                {% elif num > games_list.number|add:-3 and num < games_list.number|add:3 %}
-                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-                {% endif %}
-                {% endfor %}
-                {% if games_list.has_next %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ games_list.next_page_number }}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <span class="page-link" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </span>
-                </li>
+                {% if is_paginated %}
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; PREV</a></li>
+                        {% endif %}
+                        {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
                 {% endif %}
             </ul>
         </nav>

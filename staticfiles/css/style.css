@@ -2,16 +2,17 @@
 
 /* Fonts */
 
-.bowlby-one-sc-regular {
-    font-family: "Bowlby One SC", serif;
+.playwrite-de-grund-headers {
+    font-family: "Playwrite DE Grund", serif;
+    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }
-  
+}
 
 /* General Styling */
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     display: flex;
@@ -25,12 +26,38 @@ main {
 
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Bowlby One SC", serif;
-    letter-spacing: 1rem;
+/* Navbar Styling */
+
+nav,
+nav * {
+    background-color: purple;
+    color: white;
 }
+
+footer,
+footer * {
+    background-color: purple;
+    color: white;
+}
+
+/* Target all text elements */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+div {
+    font-family: "Playwrite DE Grund", serif;
+}
+
+
 /* Added a maximum height to the images in order to shrink the overall size of the cards, as the images fetched from BGG are not uniform in size. */
-img {
+.card img {
     max-height: 400px;
 }
 
@@ -52,7 +79,11 @@ img {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    0% {
+        transform: rotate(0deg);
+    }
 
+    100% {
+        transform: rotate(360deg);
+    }
+}

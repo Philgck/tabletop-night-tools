@@ -1,5 +1,6 @@
 import requests
 from xml.etree import ElementTree
+import html
 
 def fetch_bgg_game_data(game_name):
     # Refine the query and use more specific keywords to increase the chance of fetching the correct game
@@ -43,6 +44,9 @@ def fetch_bgg_game_details(game_id):
             minplayers = item.find('minplayers').attrib.get('value', 'Unknown')
             maxplayers = item.find('maxplayers').attrib.get('value', 'Unknown')
             image = item.find('image').text or 'No image available'
+
+            # Decode HTML entities
+            description = html.unescape(description)
             
             return {
                 'name': name,
