@@ -1,4 +1,9 @@
 /* Variables */
+:root {
+    --primary-background-colour: purple;
+    --primary-text-colour: white;
+}
+
 
 /* Fonts */
 
@@ -26,18 +31,17 @@ main {
 
 }
 
-/* Navbar Styling */
+/* Navbar and footer styling */
 
-nav,
-nav * {
-    background-color: purple;
-    color: white;
-}
-
-footer,
-footer * {
-    background-color: purple;
-    color: white;
+.navbar,
+.navbar-brand,
+.navbar-toggler,
+.nav-item,
+.nav-item a,
+.nav-item-active,
+.footer {
+    background-color: var(--primary-background-colour);
+    color: var(--primary-text-colour);
 }
 
 /* Target all text elements */
@@ -53,9 +57,16 @@ a,
 span,
 div {
     font-family: "Playwrite DE Grund", serif;
+
 }
 
+/* Custom button styling */
 
+.btn-primary {
+    background-color: purple;
+    color: white;
+    border: none;
+}
 /* Added a maximum height to the images in order to shrink the overall size of the cards, as the images fetched from BGG are not uniform in size. */
 .card img {
     max-height: 400px;
