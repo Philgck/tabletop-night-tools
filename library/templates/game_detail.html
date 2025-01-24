@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>{{ game.title }}</h1>
+    <img src="{{ game.image_url }}" class="img-fluid" alt="{{ game.title }}">
+    <p>{{ game.description }}</p>
+    <p>Player Count: {{ game.minimum_player_count }} - {{ game.maximum_player_count }}</p>
+    <a href="{% url 'game-update' game.pk %}" class="btn btn-warning">Update</a>
+    <a href="{% url 'game-delete' game.pk %}" class="btn btn-danger">Delete</a>
+</div>
+{% endblock %}

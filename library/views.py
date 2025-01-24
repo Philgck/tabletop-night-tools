@@ -15,7 +15,17 @@ def search_bgg_games(request):
             return JsonResponse(games, safe=False)
     return JsonResponse({'error': 'No games found'}, status=404)
 
+class GameDetailView(generic.DetailView):
+    model = AddGame
+    template_name = 'game_detail.html'
+    context_object_name = 'game'
 
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return AddGame.objects.filter(owner=self.request.user)
+        else:
+            return AddGame.objects.none()
+        
 class GamesList(generic.ListView):
     model = AddGame
     template_name = 'library.html'

@@ -22,7 +22,8 @@
                         <form method="post">
                             <div class="mb-3">
                                 <label for="gameSearch" class="form-label">Search for a game</label>
-                                <img src="{% static 'images/poweredbybgg.webp' %}" alt="Powered by BGG" id="BGGAcredditation" style="max-width: 100%; height: auto;">
+                                <img src="{% static 'images/poweredbybgg.webp' %}" alt="Powered by BGG"
+                                    id="BGGAcredditation" style="max-width: 100%; height: auto;">
                                 <div class="loading-spinner" id="loadingSpinner"></div>
                                 <input type="text" id="gameSearch" class="form-control" placeholder="Enter game name">
                                 <button type="button" class="btn btn-secondary mt-2"
@@ -42,19 +43,19 @@
                 </div>
             </div>
         </div>
-        
+
         <form method="get" id="filter-form" class="mb-4">
             <div class="row align-items-end">
-            <div class="col-md-6">
-                <p>Use this to filter your collection by maximum player count</p>
-            </div>
-            <div class="col-md-3">
-                <input type="number" name="max_players" class="form-control" placeholder="Max Players"
-                value="{{ request.GET.max_players }}">
-            </div>
-            <div class="col-md-3">
-                <button type="submit" class="btn btn-primary">Filter</button>
-            </div>
+                <div class="col-md-6">
+                    <p>Use this to filter your collection by maximum player count</p>
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="max_players" class="form-control" placeholder="Max Players"
+                        value="{{ request.GET.max_players }}">
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
             </div>
         </form>
         {% for game in games_list %}
@@ -62,13 +63,15 @@
         {% if game.maximum_player_count >= max_players|add:0 %}
         <div class="card shadow mb-3 col-md-5 mb-2 mx-auto">
             <div class="card-header">
-                {{ game.title }}
+                <a href="{% url 'game-detail' game.pk %}">{{ game.title }}</a>
             </div>
-            <div class="card-body">
-                <img src="{{ game.image_url }}" class="card-img-top" alt="{{ game.title }}">
+            <div class="card-body"> <a href="{% url 'game-detail' game.pk %}">
+                    <img src="{{ game.image_url }}" class="card-img-top" alt="{{ game.title }}">
+                </a>
                 <!-- <p class="card-text">{{ game.description }}</p>
                 <p class="card-text">{{ game.review }}</p> -->
-                <p class="card-text"><small class="text-muted"> Player Count: {{ game.minimum_player_count }} - {{  game.maximum_player_count }}</small></p>
+                <p class="card-text"><small class="text-muted"> Player Count: {{ game.minimum_player_count }} -
+                        {{  game.maximum_player_count }}</small></p>
                 <a href="{% url 'game-update' game.pk %}" class="btn btn-warning">Update</a>
                 <a href="{% url 'game-delete' game.pk %}" class="btn btn-danger">Delete</a>
             </div>
@@ -84,11 +87,14 @@
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         {% if page_obj.has_previous %}
-                        <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link btn btn-primary"> &laquo; PREV</a></li>
+                        <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}"
+                                class="page-link btn btn-primary"> &laquo; PREV</a></li>
                         {% endif %}
-                        <li class="page-item disabled mx-2"><span class="page-link btn btn-primary">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span></li>
+                        <li class="page-item disabled mx-2"><span class="page-link btn btn-primary">Page
+                                {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span></li>
                         {% if page_obj.has_next %}
-                        <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link btn btn-primary"> NEXT &raquo;</a></li>
+                        <li class="page-item"><a href="?page={{ page_obj.next_page_number }}"
+                                class="page-link btn btn-primary"> NEXT &raquo;</a></li>
                         {% endif %}
                     </ul>
                 </nav>
