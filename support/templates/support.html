@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <div class="container mt-4 mb-4">
     <div class="card shadow">
@@ -6,12 +7,48 @@
             <h1 class="card-title">Contact Support</h1>
         </div>
         <div class="card-body">
-            <p>Queries? Problems? Bug fixes? Requests for further features? Please use the below form for all of the above!</p>
+            <p>Queries? Problems? Bug fixes? Requests for further features? Please use the below form for all of the
+                above!</p>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 mb-4">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1 class="card-title">Want to help keep the project going?</h1>
+        </div>
+        <div class="card-body">
+            <p>These tools will always be hosted for free, for anyone to use. But if you want to help out a little with
+                the hosting costs, or with keeping the creative work going, please consider a donation of whatever you
+                feel like.</p>
+            <p>If you want to join our community, please consider joining our discord</p>
+                <img src="{% static 'images/donate.png' %}" alt="Buy me a coffee"
+                id="Buymeacoffee" style="max-width: 100%; height: 50px;" data-bs-toggle="modal" data-bs-target="#donationModal">
+                <img src="{% static 'images/discord-logo-blue.png' %}" alt="Discord"
+                id="Buymeacoffee" style="max-width: 100%; height: 50px;" data-bs-toggle="modal" data-bs-target="#donationModal">
+
+                <!-- Modal -->
+                <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="donationModalLabel">Notice</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                For the purposes of this capstone project, this is a dummy link and social accounts for this project have not been created or linked.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
