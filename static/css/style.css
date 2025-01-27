@@ -98,3 +98,20 @@ div {
         transform: rotate(360deg);
     }
 }
+
+/* Media Queries */
+
+@media (max-width: 767px) {
+    .form-row input[type="text"],
+    .form-row input[type="password"],
+    .form-row input[type="email"],
+    .form-row input[type="url"],
+    .form-row input[type="tel"],
+    .form-row input[type="number"],
+    .form-row textarea,
+    .form-row select,
+    .form-row .vTextField {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
