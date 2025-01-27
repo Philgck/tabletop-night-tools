@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4 mb-4">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1 class="card-title">Thank You</h1>
+        </div>
+        <div class="card-body">
+            <p>Your message has been sent successfully.</p>
+            <a href="{% url 'support' %}" class="btn btn-primary">Back to Support</a>
+            <a href="{% url 'library' %}" class="btn btn-primary">Back to library</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

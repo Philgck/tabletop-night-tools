@@ -1,17 +1,23 @@
 /* Variables */
+:root {
+    --primary-background-colour: purple;
+    --primary-text-colour: white;
+}
+
 
 /* Fonts */
 
 .playwrite-de-grund-headers {
-  font-family: "Playwrite DE Grund", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Playwrite DE Grund", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /* General Styling */
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     display: flex;
@@ -25,16 +31,42 @@ main {
 
 }
 
-.nav, footer {
-    background-color: purple;
-    color: white;
+/* Navbar and footer styling */
+
+.navbar,
+.navbar-brand,
+.navbar-toggler,
+.nav-item,
+.nav-item a,
+.nav-item-active,
+.footer {
+    background-color: var(--primary-background-colour);
+    color: var(--primary-text-colour);
 }
 
 /* Target all text elements */
-body, h1, h2, h3, h4, h5, h6, p, a, span, div {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+div {
     font-family: "Playwrite DE Grund", serif;
+
 }
 
+/* Custom button styling */
+
+.btn-primary {
+    background-color: purple;
+    color: white;
+    border: none;
+}
 /* Added a maximum height to the images in order to shrink the overall size of the cards, as the images fetched from BGG are not uniform in size. */
 .card img {
     max-height: 400px;
@@ -58,7 +90,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    0% {
+        transform: rotate(0deg);
+    }
 
+    100% {
+        transform: rotate(360deg);
+    }
+}
