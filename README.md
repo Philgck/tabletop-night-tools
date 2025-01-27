@@ -73,14 +73,5 @@ A single site with tools to enable to easier hosting of board gaming nights or s
 - A could have feature I wanted to implement was a friends list that would enable a user to share their library with others. Board game evenings are a fundamentally social experience, and being able to know what is in your own library and your friends libraries would be extremely helpful.
 - The name itself belies the aim: It is supposed to be several tools. I want to add features that help with the hosting of Role Playing Games as well. 
 - With regards to accessibility, directly in the tabletop space linking to specific sites dedicated to accessbility and potentially integrating some of their recommendations would be useful.
-- Whilst building the project I directly amended the all-auth templates. I realised too late that I should have copied them to build my own templates, instead of amending the base templates. I hope that I can delete this from the future enhancements section, and simplify the repo as a result. 
-- The primary focus was making sure that I would achieve CRUD and hit my MVP. As a result, I did not explore AllAuth as much as I should. In future I would like to ammend this, create a functional accounts seciton and enable a user to manage their account properly. 
+- The primary focus was making sure that I would achieve CRUD and hit my MVP. As a result, I did not explore AllAuth as much as I should. In future I would like to ammend this, create a functional accounts seciton and enable a user to manage their account properly. As it stands, a user can create a profile and log in to view specific content, and that is it. 
 - Crispyforms were not used with the project. Considering the nature of some of the content this would be helpful to make certain areas of the site more visually appealing. 
-
-Initial commit and readme. This project was created using the code institute template. 
-
-The intent of this project is to create a single site that contains multiple different tools that will help with running tabletop gaming nights. The primary functionality I intend to implement is a boardgame library app, built using Django, that enables users to store their board game library in a single location with access to information like "Player count" and "Average play length". Users will be able to update their library of games, delete entries from it, create entries to it, and view its contents. 
-
-Could haves with regards to this project are a friends list so you can share your library with other users, view your shared library between friends, and create events that will automatically consider the maximum player counts and who is attending in order to show what games could potentially be played. Further intent is to add other apps that will help with running role playing games, and the sharing of "homebrew" content with other users. 
-
-This initial commit and intial readme exists to record the intent of the project as it started, and to try and limit scope to make sure that the above is completed prior to adding further tools. 
