@@ -1,5 +1,5 @@
 # Tabletop Night Tools
-
+[Link to live site](https://tabletop-night-tools-5e7ac4f69b28.herokuapp.com/)
 ## Overview
 A single site with tools to enable to easier hosting of board gaming nights or similar tabletop experiences. Currently, at time of writing, only contains the first app (The MVP, a board game library that can filter games by maximum player count for ease of hosting a night), but with room for significant expansion. 
 
@@ -83,3 +83,12 @@ Since the terms are used throughout, BGG refers to "Board Game Geek", and any re
 - With regards to accessibility, directly in the tabletop space linking to specific sites dedicated to accessbility and potentially integrating some of their recommendations would be useful.
 - The primary focus was making sure that I would achieve CRUD and hit my MVP. As a result, I did not explore AllAuth as much as I should. In future I would like to ammend this, create a functional accounts section and enable a user to manage their account properly. As it stands, a user can create a profile and log in to view specific content, and that is it. 
 - Crispyforms were not used with the project. Considering the nature of some of the content this would be helpful to make certain areas of the site more visually appealing. 
+- AI image generation was avoided for this project. If I continue to develop it, I will work with a local artist in order to add images such as a favicon and perhaps work further on general styling for the project. 
+
+## Accreditation:
+- All images fetched by the BGGAPI are property of their respective publishers, artists and designers. All images and logos are the property of their parent companies (BGG, Buymeacoffee, Discord). 
+- Board game descriptions, uploaded to board game geek, are the property of their respective publishers and designers.
+- ChatGPT and Copilot were used in code generation and debugging of existing code.
+- Wireframes were created using Miro.
+- Thanks to Mark Briscoe for helping me unpick the issues I had created with branching my project, and thanks to Dillon McCaffrey for the support along the way. 
+- Special thanks to the Gregson Community Center for providing me with a workspace and much needed coffee to get to the end of this project, and to Laura Dakin my endlessly supportive fiance.
