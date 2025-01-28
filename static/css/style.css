@@ -70,6 +70,7 @@ div {
 /* Added a maximum height to the images in order to shrink the overall size of the cards, as the images fetched from BGG are not uniform in size. */
 .card img {
     max-height: 400px;
+    max-width: 400px;
 }
 
 /* Spinner. The script to pull information from BGG takes a long time to load, this is to make sure the user does not think it has failed. */
